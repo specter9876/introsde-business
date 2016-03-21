@@ -40,21 +40,6 @@ public interface Storage {
 
     /**
      * 
-     * @param calories
-     * @return
-     *     returns java.util.List<introsde.Food>
-     */
-    @WebMethod
-    @WebResult(name = "foods", targetNamespace = "")
-    @RequestWrapper(localName = "getFoodByCaloriesBound", targetNamespace = "http://soap.sde/", className = "introsde.GetFoodByCaloriesBound")
-    @ResponseWrapper(localName = "getFoodByCaloriesBoundResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetFoodByCaloriesBoundResponse")
-    @Action(input = "http://soap.sde/Storage/getFoodByCaloriesBoundRequest", output = "http://soap.sde/Storage/getFoodByCaloriesBoundResponse")
-    public List<Food> getFoodByCaloriesBound(
-        @WebParam(name = "calories", targetNamespace = "")
-        double calories);
-
-    /**
-     * 
      * @param idFood
      * @return
      *     returns introsde.Food
@@ -82,6 +67,21 @@ public interface Storage {
     public List<Food> getFoodByType(
         @WebParam(name = "type", targetNamespace = "")
         String type);
+
+    /**
+     * 
+     * @param calories
+     * @return
+     *     returns java.util.List<introsde.Food>
+     */
+    @WebMethod
+    @WebResult(name = "foods", targetNamespace = "")
+    @RequestWrapper(localName = "getFoodByCaloriesBound", targetNamespace = "http://soap.sde/", className = "introsde.GetFoodByCaloriesBound")
+    @ResponseWrapper(localName = "getFoodByCaloriesBoundResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetFoodByCaloriesBoundResponse")
+    @Action(input = "http://soap.sde/Storage/getFoodByCaloriesBoundRequest", output = "http://soap.sde/Storage/getFoodByCaloriesBoundResponse")
+    public List<Food> getFoodByCaloriesBound(
+        @WebParam(name = "calories", targetNamespace = "")
+        double calories);
 
     /**
      * 
@@ -215,7 +215,7 @@ public interface Storage {
      *     returns boolean
      */
     @WebMethod
-    @WebResult(name = "update", targetNamespace = "")
+    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "updatePassword", targetNamespace = "http://soap.sde/", className = "introsde.UpdatePassword")
     @ResponseWrapper(localName = "updatePasswordResponse", targetNamespace = "http://soap.sde/", className = "introsde.UpdatePasswordResponse")
     @Action(input = "http://soap.sde/Storage/updatePasswordRequest", output = "http://soap.sde/Storage/updatePasswordResponse")

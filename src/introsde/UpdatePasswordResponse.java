@@ -3,6 +3,7 @@ package introsde;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -16,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="update" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,26 +28,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "updatePasswordResponse", propOrder = {
-    "update"
+    "_return"
 })
 public class UpdatePasswordResponse {
 
-    protected boolean update;
+    @XmlElement(name = "return")
+    protected boolean _return;
 
     /**
-     * Recupera il valore della proprietà update.
+     * Recupera il valore della proprietà return.
      * 
      */
-    public boolean isUpdate() {
-        return update;
+    public boolean isReturn() {
+        return _return;
     }
 
     /**
-     * Imposta il valore della proprietà update.
+     * Imposta il valore della proprietà return.
      * 
      */
-    public void setUpdate(boolean value) {
-        this.update = value;
+    public void setReturn(boolean value) {
+        this._return = value;
     }
 
 }
