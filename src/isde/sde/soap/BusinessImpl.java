@@ -1,7 +1,7 @@
 package isde.sde.soap;
 
 import introsde.*;//cmbiare
-
+import introsde.User;
 
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;

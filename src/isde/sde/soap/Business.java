@@ -1,5 +1,6 @@
 package isde.sde.soap;
 import introsde.*;
+import introsde.User;
 
 
 import java.util.List;
@@ -144,7 +145,6 @@ public interface Business {
     
 
     @WebMethod(operationName="getQuote")
-    @WebResult(name="quote")
     public String getQuote();
 
    
