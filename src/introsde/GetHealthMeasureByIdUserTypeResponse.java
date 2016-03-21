@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="healthMeasure" type="{http://soap.document.introsde/}healthMeasure" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="healthMeasures" type="{http://soap.document.introsde/}healthMeasure" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,25 +29,25 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "getHealthMeasureByIdUserTypeResponse", propOrder = {
-    "healthMeasure"
+    "healthMeasures"
 })
 public class GetHealthMeasureByIdUserTypeResponse {
 
-    protected List<HealthMeasure> healthMeasure;
+    protected List<HealthMeasure> healthMeasures;
 
     /**
-     * Gets the value of the healthMeasure property.
+     * Gets the value of the healthMeasures property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the healthMeasure property.
+     * This is why there is not a <CODE>set</CODE> method for the healthMeasures property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getHealthMeasure().add(newItem);
+     *    getHealthMeasures().add(newItem);
      * </pre>
      * 
      * 
@@ -57,11 +57,11 @@ public class GetHealthMeasureByIdUserTypeResponse {
      * 
      * 
      */
-    public List<HealthMeasure> getHealthMeasure() {
-        if (healthMeasure == null) {
-            healthMeasure = new ArrayList<HealthMeasure>();
+    public List<HealthMeasure> getHealthMeasures() {
+        if (healthMeasures == null) {
+            healthMeasures = new ArrayList<HealthMeasure>();
         }
-        return this.healthMeasure;
+        return this.healthMeasures;
     }
 
 }

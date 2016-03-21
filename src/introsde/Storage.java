@@ -32,11 +32,26 @@ public interface Storage {
      *     returns java.util.List<introsde.Food>
      */
     @WebMethod
-    @WebResult(name = "food", targetNamespace = "")
+    @WebResult(name = "foods", targetNamespace = "")
     @RequestWrapper(localName = "getFood", targetNamespace = "http://soap.sde/", className = "introsde.GetFood")
     @ResponseWrapper(localName = "getFoodResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetFoodResponse")
     @Action(input = "http://soap.sde/Storage/getFoodRequest", output = "http://soap.sde/Storage/getFoodResponse")
     public List<Food> getFood();
+
+    /**
+     * 
+     * @param calories
+     * @return
+     *     returns java.util.List<introsde.Food>
+     */
+    @WebMethod
+    @WebResult(name = "foods", targetNamespace = "")
+    @RequestWrapper(localName = "getFoodByCaloriesBound", targetNamespace = "http://soap.sde/", className = "introsde.GetFoodByCaloriesBound")
+    @ResponseWrapper(localName = "getFoodByCaloriesBoundResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetFoodByCaloriesBoundResponse")
+    @Action(input = "http://soap.sde/Storage/getFoodByCaloriesBoundRequest", output = "http://soap.sde/Storage/getFoodByCaloriesBoundResponse")
+    public List<Food> getFoodByCaloriesBound(
+        @WebParam(name = "calories", targetNamespace = "")
+        double calories);
 
     /**
      * 
@@ -60,28 +75,13 @@ public interface Storage {
      *     returns java.util.List<introsde.Food>
      */
     @WebMethod
-    @WebResult(name = "food", targetNamespace = "")
+    @WebResult(name = "foods", targetNamespace = "")
     @RequestWrapper(localName = "getFoodByType", targetNamespace = "http://soap.sde/", className = "introsde.GetFoodByType")
     @ResponseWrapper(localName = "getFoodByTypeResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetFoodByTypeResponse")
     @Action(input = "http://soap.sde/Storage/getFoodByTypeRequest", output = "http://soap.sde/Storage/getFoodByTypeResponse")
     public List<Food> getFoodByType(
         @WebParam(name = "type", targetNamespace = "")
         String type);
-
-    /**
-     * 
-     * @param calories
-     * @return
-     *     returns java.util.List<introsde.Food>
-     */
-    @WebMethod
-    @WebResult(name = "food", targetNamespace = "")
-    @RequestWrapper(localName = "getFoodByCaloriesBound", targetNamespace = "http://soap.sde/", className = "introsde.GetFoodByCaloriesBound")
-    @ResponseWrapper(localName = "getFoodByCaloriesBoundResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetFoodByCaloriesBoundResponse")
-    @Action(input = "http://soap.sde/Storage/getFoodByCaloriesBoundRequest", output = "http://soap.sde/Storage/getFoodByCaloriesBoundResponse")
-    public List<Food> getFoodByCaloriesBound(
-        @WebParam(name = "calories", targetNamespace = "")
-        double calories);
 
     /**
      * 
@@ -104,7 +104,7 @@ public interface Storage {
      *     returns java.util.List<introsde.User>
      */
     @WebMethod
-    @WebResult(name = "user", targetNamespace = "")
+    @WebResult(name = "users", targetNamespace = "")
     @RequestWrapper(localName = "getAllUser", targetNamespace = "http://soap.sde/", className = "introsde.GetAllUser")
     @ResponseWrapper(localName = "getAllUserResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetAllUserResponse")
     @Action(input = "http://soap.sde/Storage/getAllUserRequest", output = "http://soap.sde/Storage/getAllUserResponse")
@@ -251,7 +251,7 @@ public interface Storage {
      *     returns java.util.List<introsde.Activity>
      */
     @WebMethod
-    @WebResult(name = "activity", targetNamespace = "")
+    @WebResult(name = "activities", targetNamespace = "")
     @RequestWrapper(localName = "getAllActivity", targetNamespace = "http://soap.sde/", className = "introsde.GetAllActivity")
     @ResponseWrapper(localName = "getAllActivityResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetAllActivityResponse")
     @Action(input = "http://soap.sde/Storage/getAllActivityRequest", output = "http://soap.sde/Storage/getAllActivityResponse")
@@ -264,7 +264,7 @@ public interface Storage {
      *     returns java.util.List<introsde.Activity>
      */
     @WebMethod
-    @WebResult(name = "activity", targetNamespace = "")
+    @WebResult(name = "activities", targetNamespace = "")
     @RequestWrapper(localName = "getActivityByIdUser", targetNamespace = "http://soap.sde/", className = "introsde.GetActivityByIdUser")
     @ResponseWrapper(localName = "getActivityByIdUserResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetActivityByIdUserResponse")
     @Action(input = "http://soap.sde/Storage/getActivityByIdUserRequest", output = "http://soap.sde/Storage/getActivityByIdUserResponse")
@@ -294,7 +294,7 @@ public interface Storage {
      *     returns java.util.List<introsde.Activity>
      */
     @WebMethod
-    @WebResult(name = "activity", targetNamespace = "")
+    @WebResult(name = "activities", targetNamespace = "")
     @RequestWrapper(localName = "getActivityByType", targetNamespace = "http://soap.sde/", className = "introsde.GetActivityByType")
     @ResponseWrapper(localName = "getActivityByTypeResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetActivityByTypeResponse")
     @Action(input = "http://soap.sde/Storage/getActivityByTypeRequest", output = "http://soap.sde/Storage/getActivityByTypeResponse")
@@ -309,7 +309,7 @@ public interface Storage {
      *     returns java.util.List<introsde.Activity>
      */
     @WebMethod
-    @WebResult(name = "activity", targetNamespace = "")
+    @WebResult(name = "activities", targetNamespace = "")
     @RequestWrapper(localName = "getActivityByName", targetNamespace = "http://soap.sde/", className = "introsde.GetActivityByName")
     @ResponseWrapper(localName = "getActivityByNameResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetActivityByNameResponse")
     @Action(input = "http://soap.sde/Storage/getActivityByNameRequest", output = "http://soap.sde/Storage/getActivityByNameResponse")
@@ -324,7 +324,7 @@ public interface Storage {
      *     returns java.util.List<introsde.Activity>
      */
     @WebMethod
-    @WebResult(name = "activity", targetNamespace = "")
+    @WebResult(name = "activities", targetNamespace = "")
     @RequestWrapper(localName = "getActivityByCalories", targetNamespace = "http://soap.sde/", className = "introsde.GetActivityByCalories")
     @ResponseWrapper(localName = "getActivityByCaloriesResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetActivityByCaloriesResponse")
     @Action(input = "http://soap.sde/Storage/getActivityByCaloriesRequest", output = "http://soap.sde/Storage/getActivityByCaloriesResponse")
@@ -353,7 +353,7 @@ public interface Storage {
      *     returns java.util.List<introsde.Goal>
      */
     @WebMethod
-    @WebResult(name = "goal", targetNamespace = "")
+    @WebResult(name = "goals", targetNamespace = "")
     @RequestWrapper(localName = "getAllGoal", targetNamespace = "http://soap.sde/", className = "introsde.GetAllGoal")
     @ResponseWrapper(localName = "getAllGoalResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetAllGoalResponse")
     @Action(input = "http://soap.sde/Storage/getAllGoalRequest", output = "http://soap.sde/Storage/getAllGoalResponse")
@@ -382,7 +382,7 @@ public interface Storage {
      *     returns java.util.List<introsde.Goal>
      */
     @WebMethod
-    @WebResult(name = "goal", targetNamespace = "")
+    @WebResult(name = "goals", targetNamespace = "")
     @RequestWrapper(localName = "getGoalByType", targetNamespace = "http://soap.sde/", className = "introsde.GetGoalByType")
     @ResponseWrapper(localName = "getGoalByTypeResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetGoalByTypeResponse")
     @Action(input = "http://soap.sde/Storage/getGoalByTypeRequest", output = "http://soap.sde/Storage/getGoalByTypeResponse")
@@ -399,7 +399,7 @@ public interface Storage {
      *     returns java.util.List<introsde.Goal>
      */
     @WebMethod
-    @WebResult(name = "goal", targetNamespace = "")
+    @WebResult(name = "goals", targetNamespace = "")
     @RequestWrapper(localName = "getGoalNotAchieved", targetNamespace = "http://soap.sde/", className = "introsde.GetGoalNotAchieved")
     @ResponseWrapper(localName = "getGoalNotAchievedResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetGoalNotAchievedResponse")
     @Action(input = "http://soap.sde/Storage/getGoalNotAchievedRequest", output = "http://soap.sde/Storage/getGoalNotAchievedResponse")
@@ -414,7 +414,7 @@ public interface Storage {
      *     returns java.util.List<introsde.Goal>
      */
     @WebMethod
-    @WebResult(name = "goal", targetNamespace = "")
+    @WebResult(name = "goals", targetNamespace = "")
     @RequestWrapper(localName = "getGoalAchieved", targetNamespace = "http://soap.sde/", className = "introsde.GetGoalAchieved")
     @ResponseWrapper(localName = "getGoalAchievedResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetGoalAchievedResponse")
     @Action(input = "http://soap.sde/Storage/getGoalAchievedRequest", output = "http://soap.sde/Storage/getGoalAchievedResponse")
@@ -429,7 +429,7 @@ public interface Storage {
      *     returns java.util.List<introsde.Goal>
      */
     @WebMethod
-    @WebResult(name = "goal", targetNamespace = "")
+    @WebResult(name = "goals", targetNamespace = "")
     @RequestWrapper(localName = "getGoalEndAt", targetNamespace = "http://soap.sde/", className = "introsde.GetGoalEndAt")
     @ResponseWrapper(localName = "getGoalEndAtResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetGoalEndAtResponse")
     @Action(input = "http://soap.sde/Storage/getGoalEndAtRequest", output = "http://soap.sde/Storage/getGoalEndAtResponse")
@@ -444,7 +444,7 @@ public interface Storage {
      *     returns java.util.List<introsde.Goal>
      */
     @WebMethod
-    @WebResult(name = "goal", targetNamespace = "")
+    @WebResult(name = "goals", targetNamespace = "")
     @RequestWrapper(localName = "controlGoal", targetNamespace = "http://soap.sde/", className = "introsde.ControlGoal")
     @ResponseWrapper(localName = "controlGoalResponse", targetNamespace = "http://soap.sde/", className = "introsde.ControlGoalResponse")
     @Action(input = "http://soap.sde/Storage/controlGoalRequest", output = "http://soap.sde/Storage/controlGoalResponse")
@@ -488,7 +488,7 @@ public interface Storage {
      *     returns java.util.List<introsde.HealthMeasure>
      */
     @WebMethod
-    @WebResult(name = "healthMeasure", targetNamespace = "")
+    @WebResult(name = "healthMeasures", targetNamespace = "")
     @RequestWrapper(localName = "getAllHealthMeasure", targetNamespace = "http://soap.sde/", className = "introsde.GetAllHealthMeasure")
     @ResponseWrapper(localName = "getAllHealthMeasureResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetAllHealthMeasureResponse")
     @Action(input = "http://soap.sde/Storage/getAllHealthMeasureRequest", output = "http://soap.sde/Storage/getAllHealthMeasureResponse")
@@ -501,7 +501,7 @@ public interface Storage {
      *     returns java.util.List<introsde.HealthMeasure>
      */
     @WebMethod
-    @WebResult(name = "healthMeasure", targetNamespace = "")
+    @WebResult(name = "healthMeasures", targetNamespace = "")
     @RequestWrapper(localName = "getHealthMeasureByIdUser", targetNamespace = "http://soap.sde/", className = "introsde.GetHealthMeasureByIdUser")
     @ResponseWrapper(localName = "getHealthMeasureByIdUserResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetHealthMeasureByIdUserResponse")
     @Action(input = "http://soap.sde/Storage/getHealthMeasureByIdUserRequest", output = "http://soap.sde/Storage/getHealthMeasureByIdUserResponse")
@@ -517,7 +517,7 @@ public interface Storage {
      *     returns java.util.List<introsde.HealthMeasure>
      */
     @WebMethod
-    @WebResult(name = "healthMeasure", targetNamespace = "")
+    @WebResult(name = "healthMeasures", targetNamespace = "")
     @RequestWrapper(localName = "getHealthMeasureByIdUserType", targetNamespace = "http://soap.sde/", className = "introsde.GetHealthMeasureByIdUserType")
     @ResponseWrapper(localName = "getHealthMeasureByIdUserTypeResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetHealthMeasureByIdUserTypeResponse")
     @Action(input = "http://soap.sde/Storage/getHealthMeasureByIdUserTypeRequest", output = "http://soap.sde/Storage/getHealthMeasureByIdUserTypeResponse")
@@ -576,7 +576,7 @@ public interface Storage {
      *     returns java.util.List<introsde.Food>
      */
     @WebMethod
-    @WebResult(name = "food", targetNamespace = "")
+    @WebResult(name = "foods", targetNamespace = "")
     @RequestWrapper(localName = "getAdapterFood", targetNamespace = "http://soap.sde/", className = "introsde.GetAdapterFood")
     @ResponseWrapper(localName = "getAdapterFoodResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetAdapterFoodResponse")
     @Action(input = "http://soap.sde/Storage/getAdapterFoodRequest", output = "http://soap.sde/Storage/getAdapterFoodResponse")

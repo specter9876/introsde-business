@@ -54,12 +54,12 @@ public interface Business {
     
     
     @WebMethod(operationName = "getRecentHealthMeasureByUser")
-    @WebResult(name = "healthMeasure")
+    @WebResult(name = "healthMeasures")
     public List<HealthMeasure> getRecentHealthMeasureByUser(@WebParam(name = "idUser") Long idUser );
     
     
     @WebMethod(operationName = "getHistoryOfAllHealthMeasureByUser")
-    @WebResult(name = "healthMeasure")
+    @WebResult(name = "healthMeasures")
     public List<HealthMeasure> getHistoryOfAllHealthMeasureByUser(@WebParam(name = "idUser") Long idUser );
     
 
@@ -71,12 +71,12 @@ public interface Business {
    /////////////////////////////////////FOOD//////////////////////////////////////////
    
     @WebMethod(operationName="suggestFoodByCaloriesBound")
-    @WebResult(name="food")
+    @WebResult(name="foods")
     public List<Food> suggestFoodByCaloriesBound(@WebParam(name = "type") String type, @WebParam(name = "calories") double calories);
 
     
     @WebMethod(operationName="suggestFoodByType")
-    @WebResult(name="food")
+    @WebResult(name="foods")
     public List<Food> suggestFoodByType(@WebParam(name = "type") String type);
     
    //vedere se aggiungere
@@ -85,18 +85,18 @@ public interface Business {
     ///////////////////////////////////GOAL//////////////////////////////////////////
 
     @WebMethod(operationName="toDoGoal")
-    @WebResult(name="goal")
+    @WebResult(name="goals")
     public List<Goal> toDoGoal(@WebParam(name = "idUser") long idUser);
 
     @WebMethod(operationName="getGoalAchieved")
-    @WebResult(name="goal")
+    @WebResult(name="goals")
     public List<Goal> getGoalAchieved(@WebParam(name = "idUser") long idUser);
     
     
     
     
     @WebMethod(operationName="failGoal")
-    @WebResult(name="goal")
+    @WebResult(name="goals")
     public List<Goal> failGoal(@WebParam(name = "idUser") long idUser);
 
     
@@ -124,7 +124,7 @@ public interface Business {
     
     
     @WebMethod(operationName = "getMyDoneActivity")
-    @WebResult(name = "activity")
+    @WebResult(name = "activities")
     public List<Activity> getMyDoneActivity(@WebParam(name = "idUser") long idUser );
     
 

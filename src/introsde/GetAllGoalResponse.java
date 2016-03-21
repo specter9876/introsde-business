@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="goal" type="{http://soap.document.introsde/}goal" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="goals" type="{http://soap.document.introsde/}goal" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,25 +29,25 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "getAllGoalResponse", propOrder = {
-    "goal"
+    "goals"
 })
 public class GetAllGoalResponse {
 
-    protected List<Goal> goal;
+    protected List<Goal> goals;
 
     /**
-     * Gets the value of the goal property.
+     * Gets the value of the goals property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the goal property.
+     * This is why there is not a <CODE>set</CODE> method for the goals property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getGoal().add(newItem);
+     *    getGoals().add(newItem);
      * </pre>
      * 
      * 
@@ -57,11 +57,11 @@ public class GetAllGoalResponse {
      * 
      * 
      */
-    public List<Goal> getGoal() {
-        if (goal == null) {
-            goal = new ArrayList<Goal>();
+    public List<Goal> getGoals() {
+        if (goals == null) {
+            goals = new ArrayList<Goal>();
         }
-        return this.goal;
+        return this.goals;
     }
 
 }
