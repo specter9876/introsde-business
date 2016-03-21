@@ -55,21 +55,6 @@ public interface Storage {
 
     /**
      * 
-     * @param calories
-     * @return
-     *     returns java.util.List<introsde.Food>
-     */
-    @WebMethod
-    @WebResult(name = "food", targetNamespace = "")
-    @RequestWrapper(localName = "getFoodByCaloriesBound", targetNamespace = "http://soap.sde/", className = "introsde.GetFoodByCaloriesBound")
-    @ResponseWrapper(localName = "getFoodByCaloriesBoundResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetFoodByCaloriesBoundResponse")
-    @Action(input = "http://soap.sde/Storage/getFoodByCaloriesBoundRequest", output = "http://soap.sde/Storage/getFoodByCaloriesBoundResponse")
-    public List<Food> getFoodByCaloriesBound(
-        @WebParam(name = "calories", targetNamespace = "")
-        double calories);
-
-    /**
-     * 
      * @param type
      * @return
      *     returns java.util.List<introsde.Food>
@@ -82,6 +67,21 @@ public interface Storage {
     public List<Food> getFoodByType(
         @WebParam(name = "type", targetNamespace = "")
         String type);
+
+    /**
+     * 
+     * @param calories
+     * @return
+     *     returns java.util.List<introsde.Food>
+     */
+    @WebMethod
+    @WebResult(name = "food", targetNamespace = "")
+    @RequestWrapper(localName = "getFoodByCaloriesBound", targetNamespace = "http://soap.sde/", className = "introsde.GetFoodByCaloriesBound")
+    @ResponseWrapper(localName = "getFoodByCaloriesBoundResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetFoodByCaloriesBoundResponse")
+    @Action(input = "http://soap.sde/Storage/getFoodByCaloriesBoundRequest", output = "http://soap.sde/Storage/getFoodByCaloriesBoundResponse")
+    public List<Food> getFoodByCaloriesBound(
+        @WebParam(name = "calories", targetNamespace = "")
+        double calories);
 
     /**
      * 

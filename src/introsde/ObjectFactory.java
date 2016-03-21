@@ -107,6 +107,46 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Goal }
+     * 
+     */
+    public Goal createGoal() {
+        return new Goal();
+    }
+
+    /**
+     * Create an instance of {@link Activity }
+     * 
+     */
+    public Activity createActivity() {
+        return new Activity();
+    }
+
+    /**
+     * Create an instance of {@link HealthMeasure }
+     * 
+     */
+    public HealthMeasure createHealthMeasure() {
+        return new HealthMeasure();
+    }
+
+    /**
+     * Create an instance of {@link User }
+     * 
+     */
+    public User createUser() {
+        return new User();
+    }
+
+    /**
+     * Create an instance of {@link Food }
+     * 
+     */
+    public Food createFood() {
+        return new Food();
+    }
+
+    /**
      * Create an instance of {@link CreateHealthMeasure }
      * 
      */
@@ -696,46 +736,6 @@ public class ObjectFactory {
      */
     public GetActivityByIdUser createGetActivityByIdUser() {
         return new GetActivityByIdUser();
-    }
-
-    /**
-     * Create an instance of {@link Goal }
-     * 
-     */
-    public Goal createGoal() {
-        return new Goal();
-    }
-
-    /**
-     * Create an instance of {@link Activity }
-     * 
-     */
-    public Activity createActivity() {
-        return new Activity();
-    }
-
-    /**
-     * Create an instance of {@link HealthMeasure }
-     * 
-     */
-    public HealthMeasure createHealthMeasure() {
-        return new HealthMeasure();
-    }
-
-    /**
-     * Create an instance of {@link User }
-     * 
-     */
-    public User createUser() {
-        return new User();
-    }
-
-    /**
-     * Create an instance of {@link Food }
-     * 
-     */
-    public Food createFood() {
-        return new Food();
     }
 
     /**
