@@ -3,6 +3,7 @@ package introsde;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -16,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="quote" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,34 +28,35 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "getQuoteResponse", propOrder = {
-    "quote"
+    "_return"
 })
 public class GetQuoteResponse {
 
-    protected String quote;
+    @XmlElement(name = "return")
+    protected String _return;
 
     /**
-     * Recupera il valore della proprietà quote.
+     * Recupera il valore della proprietà return.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getQuote() {
-        return quote;
+    public String getReturn() {
+        return _return;
     }
 
     /**
-     * Imposta il valore della proprietà quote.
+     * Imposta il valore della proprietà return.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setQuote(String value) {
-        this.quote = value;
+    public void setReturn(String value) {
+        this._return = value;
     }
 
 }

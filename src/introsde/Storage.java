@@ -563,7 +563,7 @@ public interface Storage {
      *     returns java.lang.String
      */
     @WebMethod
-    @WebResult(name = "quote", targetNamespace = "")
+    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "getQuote", targetNamespace = "http://soap.sde/", className = "introsde.GetQuote")
     @ResponseWrapper(localName = "getQuoteResponse", targetNamespace = "http://soap.sde/", className = "introsde.GetQuoteResponse")
     @Action(input = "http://soap.sde/Storage/getQuoteRequest", output = "http://soap.sde/Storage/getQuoteResponse")
