@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per getQuoteResponse complex type.
+ * <p>Classe Java per loginResponse complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
  * 
  * <pre>
- * &lt;complexType name="getQuoteResponse">
+ * &lt;complexType name="loginResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="quote" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="user" type="{http://soap.document.introsde/}user" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,35 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getQuoteResponse", propOrder = {
-    "quote"
+@XmlType(name = "loginResponse", propOrder = {
+    "user"
 })
-public class GetQuoteResponse {
+public class LoginResponse {
 
-    protected String quote;
+    protected User user;
 
     /**
-     * Recupera il valore della proprietà quote.
+     * Recupera il valore della proprietà user.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link User }
      *     
      */
-    public String getQuote() {
-        return quote;
+    public User getUser() {
+        return user;
     }
 
     /**
-     * Imposta il valore della proprietà quote.
+     * Imposta il valore della proprietà user.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link User }
      *     
      */
-    public void setQuote(String value) {
-        this.quote = value;
+    public void setUser(User value) {
+        this.user = value;
     }
 
 }

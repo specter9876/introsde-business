@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per getQuoteResponse complex type.
+ * <p>Classe Java per getRelatedActivityToHealthTypeResponse complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
  * 
  * <pre>
- * &lt;complexType name="getQuoteResponse">
+ * &lt;complexType name="getRelatedActivityToHealthTypeResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="quote" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="activity" type="{http://soap.document.introsde/}activity" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,35 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getQuoteResponse", propOrder = {
-    "quote"
+@XmlType(name = "getRelatedActivityToHealthTypeResponse", propOrder = {
+    "activity"
 })
-public class GetQuoteResponse {
+public class GetRelatedActivityToHealthTypeResponse {
 
-    protected String quote;
+    protected Activity activity;
 
     /**
-     * Recupera il valore della proprietà quote.
+     * Recupera il valore della proprietà activity.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Activity }
      *     
      */
-    public String getQuote() {
-        return quote;
+    public Activity getActivity() {
+        return activity;
     }
 
     /**
-     * Imposta il valore della proprietà quote.
+     * Imposta il valore della proprietà activity.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Activity }
      *     
      */
-    public void setQuote(String value) {
-        this.quote = value;
+    public void setActivity(Activity value) {
+        this.activity = value;
     }
 
 }

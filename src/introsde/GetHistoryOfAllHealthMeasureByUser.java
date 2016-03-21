@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per getGoalAchieved complex type.
+ * <p>Classe Java per getHistoryOfAllHealthMeasureByUser complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
  * 
  * <pre>
- * &lt;complexType name="getGoalAchieved">
+ * &lt;complexType name="getHistoryOfAllHealthMeasureByUser">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="idUser" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="idUser" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,26 +26,34 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getGoalAchieved", propOrder = {
+@XmlType(name = "getHistoryOfAllHealthMeasureByUser", propOrder = {
     "idUser"
 })
-public class GetGoalAchieved {
+public class GetHistoryOfAllHealthMeasureByUser {
 
-    protected long idUser;
+    protected Long idUser;
 
     /**
      * Recupera il valore della proprietà idUser.
      * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
      */
-    public long getIdUser() {
+    public Long getIdUser() {
         return idUser;
     }
 
     /**
      * Imposta il valore della proprietà idUser.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
      */
-    public void setIdUser(long value) {
+    public void setIdUser(Long value) {
         this.idUser = value;
     }
 
