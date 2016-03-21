@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="idUser" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="userId" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,26 +27,26 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "getGoalAchieved", propOrder = {
-    "idUser"
+    "userId"
 })
 public class GetGoalAchieved {
 
-    protected long idUser;
+    protected long userId;
 
     /**
-     * Recupera il valore della proprietà idUser.
+     * Recupera il valore della proprietà userId.
      * 
      */
-    public long getIdUser() {
-        return idUser;
+    public long getUserId() {
+        return userId;
     }
 
     /**
-     * Imposta il valore della proprietà idUser.
+     * Imposta il valore della proprietà userId.
      * 
      */
-    public void setIdUser(long value) {
-        this.idUser = value;
+    public void setUserId(long value) {
+        this.userId = value;
     }
 
 }

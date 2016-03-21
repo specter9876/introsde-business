@@ -1,2 +1,2 @@
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://soap.sde.isde/")
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://soap.sde/")
 package introsde;
