@@ -171,6 +171,64 @@ public class BusinessImpl implements Business {
     public HealthMeasure addHealthMeasure( Long idUser, HealthMeasure healthMeasure ){//OK\\ occhio timestamp di health measure e posso rimuovere il iduser qua
         //magari per distance la metto incrementale?
         Storage storage=getStorage();
+        
+        ////////////////////////////////////////////////////////////////////////////////////
+        //controlllo con l ultima healthmeasure se è meglio o peggio
+        List<HealthMeasure> hm=this.getRecentHealthMeasureByUser(idUser);
+        for (HealthMeasure hmtemp:hm){
+            
+            if(hmtemp.getType().equals(healthMeasure.getType())){
+                
+                
+                ///weght and step and heght
+                if (healthMeasure.equals("weight")){
+                    
+                    if(healthMeasure.getValue()<hmtemp.getValue()){
+                        
+                        System.out.println("well done, go on and remember: "+storage.getQuote());
+                    }
+                    else{
+                        
+                         System.out.println("You are static, go on and remember: "+storage.getQuote());
+                    }
+                    
+                }
+                if(healthMeasure.equals("height")){
+                    
+                    if(healthMeasure.getValue()<hmtemp.getValue()){
+                        
+                        System.out.println("you are restricting, go on and remember: "+storage.getQuote());
+                    }
+                    else{
+                        
+                        System.out.println("You are growing, go on and remember: "+storage.getQuote());
+                    }
+
+                    
+                }
+                if((healthMeasure.equals("steps")) || (healthMeasure.equals("distance"))){
+                    
+                    if(healthMeasure.getValue()>hmtemp.getValue()){
+                        
+                        System.out.println("well done, go on and remember: "+storage.getQuote());
+                    }
+                    else{
+                        
+                        System.out.println("You are static, go on and remember: "+storage.getQuote());
+                    }
+
+                    
+                }
+                
+                
+            }
+            
+        }
+        ////////////////////////////////////////////////////////////////////////////////////
+                   
+        //fare trick per salvare distance??
+        
+        
         return storage.createHealthMeasure(healthMeasure);
     }
     
