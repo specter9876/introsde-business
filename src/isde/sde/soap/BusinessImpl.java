@@ -173,11 +173,15 @@ public class BusinessImpl implements Business {
         Storage storage=getStorage();
           System.out.println("add health measure");
         
+        
+        ////!!!!!!!!mettere il campo data sulla nuova misura che mi son dimenticato
+        
         ////////////////////////////////////////////////////////////////////////////////////
         //controlllo con l ultima healthmeasure se è meglio o peggio
         List<HealthMeasure> hm=this.getRecentHealthMeasureByUser(idUser);
+        System.out.println("size of retrieved: "+hm.size());
         for (HealthMeasure hmtemp:hm){
-            
+            System.out.println("looking for");
             if(hmtemp.getType().equals(healthMeasure.getType())){
                 System.out.println("match rtpe");
                 
