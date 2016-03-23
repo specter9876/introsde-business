@@ -168,11 +168,11 @@ public class BusinessImpl implements Business {
     
 
     @Override
-    public HealthMeasure addHealthMeasure( Long idUser, HealthMeasure healthMeasure ){//OK\\ occhio timestamp di health measure e posso rimuovere il iduser qua
+    public String addHealthMeasure( Long idUser, HealthMeasure healthMeasure ){//OK\\ occhio timestamp di health measure e posso rimuovere il iduser qua
         //magari per distance la metto incrementale?
         Storage storage=getStorage();
-          System.out.println("add health measure");
-        
+        System.out.println("add health measure");
+        String result=null;
         
         ////!!!!!!!!mettere il campo data sulla nuova misura che mi son dimenticato
         
@@ -191,10 +191,13 @@ public class BusinessImpl implements Business {
                     if(healthMeasure.getValue()<hmtemp.getValue()){
                         
                         System.out.println("well done, go on and remember: "+storage.getQuote());
+                        result="well done, go on and remember: "+storage.getQuote();
                     }
                     else{
                         
                          System.out.println("You are static, go on and remember: "+storage.getQuote());
+                         result="You are static, go on and remember: "+storage.getQuote();
+
                     }
                     
                 }
@@ -203,10 +206,12 @@ public class BusinessImpl implements Business {
                     if(healthMeasure.getValue()<hmtemp.getValue()){
                         
                         System.out.println("you are restricting, go on and remember: "+storage.getQuote());
+                        result="you are restricting, go on and remember: "+storage.getQuote();
                     }
                     else{
                         
                         System.out.println("You are growing, go on and remember: "+storage.getQuote());
+                        result="You are growing, go on and remember: "+storage.getQuote();
                     }
 
                     
@@ -216,10 +221,12 @@ public class BusinessImpl implements Business {
                     if(healthMeasure.getValue()>hmtemp.getValue()){
                         
                         System.out.println("well done, go on and remember: "+storage.getQuote());
+                        result="well done, go on and remember: "+storage.getQuote();
                     }
                     else{
                         
                         System.out.println("You are static, go on and remember: "+storage.getQuote());
+                        result="You are static, go on and remember: "+storage.getQuote();
                     }
 
                     
@@ -233,8 +240,28 @@ public class BusinessImpl implements Business {
                    
         //fare trick per salvare distance??
         
+        //completato
+        try{
+            
+            
+            String timeStamp = new SimpleDateFormat("y/M/d").format(Calendar.getInstance().getTime());
+            DateFormat df = new SimpleDateFormat("y/M/d");
+            Date date = df.parse(timeStamp);
+            GregorianCalendar cal = new GregorianCalendar();
+            cal.setTime(date);
+            
+            XMLGregorianCalendar xmlDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(cal);
+            healthMeasure.setDate(xmlDate);
+            
+            
+        }
+        catch(Exception e){
+            
+        }
+        HealthMeasure hmeasure=storage.createHealthMeasure(healthMeasure);
         
-        return storage.createHealthMeasure(healthMeasure);
+        
+        return result;
     }
     
     /////////////////////////////////////FOOD//////////////////////////////////////////

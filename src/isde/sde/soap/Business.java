@@ -66,8 +66,7 @@ public interface Business {
 
     
     @WebMethod(operationName = "addHealthMeasure")
-    @WebResult(name = "healthMeasure")
-    public HealthMeasure addHealthMeasure(@WebParam(name = "idUser") Long idUser,@WebParam(name = "healthMeasureIn") HealthMeasure healthMeasure );
+    public String addHealthMeasure(@WebParam(name = "idUser") Long idUser,@WebParam(name = "healthMeasureIn") HealthMeasure healthMeasure );
     
    /////////////////////////////////////FOOD//////////////////////////////////////////
    
