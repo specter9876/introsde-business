@@ -101,7 +101,7 @@ public class BusinessImpl implements Business {
     
     @Override
     public User createUser(User user){ //ok
-        
+        //+++al create user creo anche healht va che è piu compatto
         
         Storage storage=getStorage();
         User u=storage.createUser(user);
@@ -119,7 +119,7 @@ public class BusinessImpl implements Business {
         Storage storage=getStorage();
         //User userRetrieved=storage.getUserById(user.getId());
         //
-        //magari verificare i campi updatati ricevendo qualcosa da sopra
+        //+++magari verificare i campi updatati ricevendo qualcosa da sopra se li passo null magari tiene quelli(boh vedere)
         
         
 
@@ -168,15 +168,12 @@ public class BusinessImpl implements Business {
     
 
     @Override
-    public String addHealthMeasure( Long idUser, HealthMeasure healthMeasure ){//OK\\ occhio timestamp di health measure e posso rimuovere il iduser qua
+    public String addHealthMeasure( Long idUser, HealthMeasure healthMeasure ){//OK\\
         //magari per distance la metto incrementale?
         Storage storage=getStorage();
         System.out.println("add health measure");
         String result=null;
         
-        ////!!!!!!!!mettere il campo data sulla nuova misura che mi son dimenticato
-        
-        ////////////////////////////////////////////////////////////////////////////////////
         //controlllo con l ultima healthmeasure se è meglio o peggio
         List<HealthMeasure> hm=this.getRecentHealthMeasureByUser(idUser);
         System.out.println("size of retrieved: "+hm.size());
@@ -236,10 +233,7 @@ public class BusinessImpl implements Business {
             }
             
         }
-        ////////////////////////////////////////////////////////////////////////////////////
-                   
-        //fare trick per salvare distance??
-        
+    
         //completato
         try{
             
@@ -306,7 +300,7 @@ public class BusinessImpl implements Business {
     public List<Goal> controlGoalHealth( HealthMeasure healthMeasure, long idUser ){
         
         Storage storage=getStorage();
-        //Long id=healthMeasure.getUser().getIdUser();
+       
         List<Goal> goalNotAchieved=storage.getGoalNotAchieved(idUser);
         List<Goal> goalselect=new ArrayList <Goal>();
 
@@ -315,8 +309,8 @@ public class BusinessImpl implements Business {
         	if(goaltemp.getDescription().equals(healthMeasure.getType())){
 
 
-        		//mettere discriminante per goal da activity particolari//tipo perdere peso
-
+        		//+++mettere discriminante per goal da activity particolari//tipo perdere peso
+                
 
         		 System.out.println("find goal for activity");
                  double currentProgress=goaltemp.getProgress()+healthMeasure.getValue();
@@ -693,6 +687,8 @@ public class BusinessImpl implements Business {
         
         return null;
     }
+    
+    
     
     
     
