@@ -171,7 +171,7 @@ public class BusinessImpl implements Business {
     public HealthMeasure addHealthMeasure( Long idUser, HealthMeasure healthMeasure ){//OK\\ occhio timestamp di health measure e posso rimuovere il iduser qua
         //magari per distance la metto incrementale?
         Storage storage=getStorage();
-          System("add health measure");
+          System.out.println("add health measure");
         
         ////////////////////////////////////////////////////////////////////////////////////
         //controlllo con l ultima healthmeasure se è meglio o peggio
@@ -179,7 +179,7 @@ public class BusinessImpl implements Business {
         for (HealthMeasure hmtemp:hm){
             
             if(hmtemp.getType().equals(healthMeasure.getType())){
-                System("match rtpe");
+                System.out.println("match rtpe");
                 
                 ///weght and step and heght
                 if (healthMeasure.equals("weight")){
