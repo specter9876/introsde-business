@@ -186,7 +186,7 @@ public class BusinessImpl implements Business {
                 System.out.println("match rtpe");
                 
                 ///weght and step and heght
-                if (healthMeasure.getType.equals("weight")){
+                if (healthMeasure.getType().equals("weight")){
                     
                     if(healthMeasure.getValue()<hmtemp.getValue()){
                         
@@ -198,7 +198,7 @@ public class BusinessImpl implements Business {
                     }
                     
                 }
-                if(healthMeasure.getType.equals("height")){
+                if(healthMeasure.getType().equals("height")){
                     
                     if(healthMeasure.getValue()<hmtemp.getValue()){
                         
@@ -211,7 +211,7 @@ public class BusinessImpl implements Business {
 
                     
                 }
-                if((healthMeasure.getType.equals("steps")) || (healthMeasure.getType.equals("distance"))){
+                if((healthMeasure.getType().equals("steps")) || (healthMeasure.getType().equals("distance"))){
                     
                     if(healthMeasure.getValue()>hmtemp.getValue()){
                         
