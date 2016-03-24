@@ -309,9 +309,12 @@ public class BusinessImpl implements Business {
 
         for(Goal goaltemp:goalNotAchieved){
             System.out.println("FOR to check goal not achieved");
+            System.out.println("goal descript: "+goaltemp.getDescription());
+            System.out.println("goal descript: "+healthMeasure.getType());
+            
             
         	if(goaltemp.getDescription().equals(healthMeasure.getType())){
-                System.out.println("FOR to check goal not achieved");
+                System.out.println("found goal");
 
 
 
