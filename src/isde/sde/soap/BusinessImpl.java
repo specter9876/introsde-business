@@ -101,7 +101,7 @@ public class BusinessImpl implements Business {
     
     @Override
     public User createUser(User user){ //ok
-        //+++al create user creo anche healht va che è piu compatto
+        //+++al create user creo anche healht va che è piu compatto lo posso fare in process
         
         Storage storage=getStorage();
         User u=storage.createUser(user);
@@ -310,57 +310,102 @@ public class BusinessImpl implements Business {
 
 
         		//+++mettere discriminante per goal da activity particolari//tipo perdere peso
-                
+                if (goaltemp.getDescription().equals("lose weight")){
+                    
+                    List<HealthMeasure> listHm= this.getRecentHealthMeasureByUser(idUser);
+                    for(HealthMeasure hmtemp:listHm){
+                        
+                        if((hmtemp.getType().equals("weight"))&&(hmtemp.getValue()-healthMeasure.getValue()+ goaltemp.getProgress()>=goaltemp.getEndValue())){
+                            //goal achieve
+                            try{
+                                
+                                
+                                String timeStamp = new SimpleDateFormat("y/M/d").format(Calendar.getInstance().getTime());
+                                DateFormat df = new SimpleDateFormat("y/M/d");
+                                Date date = df.parse(timeStamp);
+                                GregorianCalendar cal = new GregorianCalendar();
+                                cal.setTime(date);
+                                
+                                XMLGregorianCalendar xmlDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(cal);
+                                goaltemp.setEndAt(xmlDate);
+                                
+                                
+                            }
+                            catch(Exception e){
+                                
+                            }
+                            
+                            System.out.println("saving gooal update");
+                            goaltemp.setProgress(goaltemp.getEndValue());
+                            goaltemp.setIsAchieved(1);
+                            goalselect.add(storage.updateGoal(goaltemp));
 
-        		 System.out.println("find goal for activity");
-                 double currentProgress=goaltemp.getProgress()+healthMeasure.getValue();
-
-        		if((goaltemp.getEndValue()<=healthMeasure.getValue())||(currentProgress>=goaltemp.getEndValue())){
+                        }
+                        else{
+                            
+                             if((hmtemp.getType().equals("weight"))&&(hmtemp.getValue()-healthMeasure.getValue()+ goaltemp.getProgress()<goaltemp.getEndValue())){
+                                   //goal not achieved upadte progress
+                                   double progress=goaltemp.getProgress();
+                                
+                                   goaltemp.setProgress(progress+hmtemp.getValue()-healthMeasure.getValue());
+                                   goalselect.add(storage.updateGoal(goaltemp));
+                             }
+                         }
+                           
+                     }
+                    
+                     return goalselect;
+                 }
+                           
+                //gaolhealth generico
+                else{
+                     System.out.println("find goal for activity");
+                     double currentProgress=goaltemp.getProgress()+healthMeasure.getValue();
+                     
+                     if((goaltemp.getEndValue()<=healthMeasure.getValue())||(currentProgress>=goaltemp.getEndValue())){
 
         			//completato
-        			try{
+                            try{
 
-
-                    	String timeStamp = new SimpleDateFormat("y/M/d").format(Calendar.getInstance().getTime());
-						DateFormat df = new SimpleDateFormat("y/M/d");
-						Date date = df.parse(timeStamp);
-						GregorianCalendar cal = new GregorianCalendar();
-						cal.setTime(date);
+                                String timeStamp = new SimpleDateFormat("y/M/d").format(Calendar.getInstance().getTime());
+                                DateFormat df = new SimpleDateFormat("y/M/d");
+                                Date date = df.parse(timeStamp);
+                                GregorianCalendar cal = new GregorianCalendar();
+                                cal.setTime(date);
 						
-                        XMLGregorianCalendar xmlDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(cal);
-                        goaltemp.setEndAt(xmlDate);
+                                XMLGregorianCalendar xmlDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(cal);
+                                goaltemp.setEndAt(xmlDate);
 
                        
-                    }
-                    catch(Exception e){
+                                }
+                            catch(Exception e){
                         
-                    }
+                            }
 
-                    System.out.println("saving gooal update");
-                    goaltemp.setProgress(goaltemp.getEndValue());
-                    goaltemp.setIsAchieved(1);
-                    goalselect.add(storage.updateGoal(goaltemp));
+                            System.out.println("saving gooal update");
+                            goaltemp.setProgress(goaltemp.getEndValue());
+                            goaltemp.setIsAchieved(1);
+                            goalselect.add(storage.updateGoal(goaltemp));
 
-
-
-        		}
-        		else{
-
-        			//non completo fare update
-        			//double currentProgress=goaltemp.getProgress();
-        			goaltemp.setProgress(currentProgress);
-        			goalselect.add(storage.updateGoal(goaltemp));
-
-
-        		}
-
+                     }
         		
+                     else{
 
-        	}
-        	
-            
+                         //non completo fare update
+                         //double currentProgress=goaltemp.getProgress();
+                         goaltemp.setProgress(currentProgress);
+                         goalselect.add(storage.updateGoal(goaltemp));
+        		
+                     }
+                    
+                    return goalselect;
+
+                 }
+            }
         }
         return goalselect;
+
+       
     }
     
     @Override
@@ -536,7 +581,7 @@ public class BusinessImpl implements Business {
                 System.out.println("tempo scaduto");
                 System.out.println("Activity name: "+g.getDescription());
                 finalGoal.add(g);
-                //rimuovere dal db?????
+                //+++rimuovere dal db?????
                 
             }
             else{
