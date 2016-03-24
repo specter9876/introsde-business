@@ -308,13 +308,17 @@ public class BusinessImpl implements Business {
         List<Goal> goalselect=new ArrayList <Goal>();
 
         for(Goal goaltemp:goalNotAchieved){
+            System.out.println("FOR to check goal not achieved");
             
         	if(goaltemp.getDescription().equals(healthMeasure.getType())){
+                System.out.println("FOR to check goal not achieved");
+
 
 
         		//+++mettere discriminante per goal da activity particolari//tipo perdere peso
-                if (goaltemp.getDescription().equals("lose weight")){
+                if (goaltemp.getDescription().equals("weight")){
                     
+                    System.out.println("Weight measure control goal");
                     List<HealthMeasure> listHm= this.getRecentHealthMeasureByUser(idUser);
                     for(HealthMeasure hmtemp:listHm){
                         
