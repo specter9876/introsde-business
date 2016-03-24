@@ -252,6 +252,9 @@ public class BusinessImpl implements Business {
         catch(Exception e){
             
         }
+        if(result==null){
+            result="you add a new measure good";
+        }
         HealthMeasure hmeasure=storage.createHealthMeasure(healthMeasure);
         
         
