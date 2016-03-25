@@ -41,7 +41,7 @@ public interface Business {
     
     @WebMethod(operationName = "createUser")
     @WebResult(name = "user")
-    public User createUser(@WebParam(name = "userIn") User user);
+    public User createUser(@WebParam(name = "userIn") User user, @WebParam(name = "healthMeasures") List<HealthMeasure>healthMeasures);
     
     
     @WebMethod(operationName = "updateUser")

@@ -100,11 +100,17 @@ public class BusinessImpl implements Business {
     
     
     @Override
-    public User createUser(User user){ //ok
+    public User createUser(User user, List<HealthMeasure> healthMeasures){ //ok
         //+++al create user creo anche healht va che è piu compatto lo posso fare in process
         
         Storage storage=getStorage();
+        String result=null;
+        
         User u=storage.createUser(user);
+        for(HealthMeasure hm:healthmeasure){
+            
+            result=this.addHealthMeasure(hm);
+        }
         
        
         return u;
