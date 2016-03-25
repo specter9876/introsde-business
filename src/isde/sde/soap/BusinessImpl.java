@@ -107,9 +107,9 @@ public class BusinessImpl implements Business {
         String result=null;
         
         User u=storage.createUser(user);
-        for(HealthMeasure hm:healthmeasure){
+        for(HealthMeasure hm:healthMeasures){
             
-            result=this.addHealthMeasure(hm);
+            result=this.addHealthMeasure(u.getIdUser(), hm);
         }
         
        
