@@ -176,6 +176,7 @@ public class BusinessImpl implements Business {
         
         //controlllo con l ultima healthmeasure se è meglio o peggio
         List<HealthMeasure> hm=this.getRecentHealthMeasureByUser(idUser);
+          System.out.println("problemmmm flag");
         if(hm.size()>0){
         
         System.out.println("size of retrieved: "+hm.size());
