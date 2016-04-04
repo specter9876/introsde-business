@@ -181,6 +181,7 @@ public class BusinessImpl implements Business {
         System.out.println("size of retrieved: "+hm.size());
         for (HealthMeasure hmtemp:hm){
             System.out.println("looking for");
+            
             if(hmtemp.getType().equals(healthMeasure.getType())){
                 System.out.println("match rtpe");
                 
@@ -201,6 +202,8 @@ public class BusinessImpl implements Business {
                     
                 }
                 if(healthMeasure.getType().equals("height")){
+                    
+                    System.out.println("height check")
                     
                     if(healthMeasure.getValue()<hmtemp.getValue()){
                         
