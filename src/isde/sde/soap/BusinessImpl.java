@@ -184,6 +184,9 @@ public class BusinessImpl implements Business {
             
             if(hmtemp.getType().equals(healthMeasure.getType())){
                 System.out.println("match rtpe");
+                System.out.println("hmtemp.getType(): "+hmtemp.getType());
+                 System.out.println("healthMeasure.getType(): "+healthMeasure.getType());
+                
                 
                 ///weght and step and heght
                 if (healthMeasure.getType().equals("weight")){
@@ -243,7 +246,7 @@ public class BusinessImpl implements Business {
         //completato
         try{
             
-            
+            System.out.println("try data");
             String timeStamp = new SimpleDateFormat("y/M/d").format(Calendar.getInstance().getTime());
             DateFormat df = new SimpleDateFormat("y/M/d");
             Date date = df.parse(timeStamp);
@@ -261,6 +264,8 @@ public class BusinessImpl implements Business {
         if(result==null){
             result="you add a new measure good";
         }
+        
+        System.out.println("create measure");
         HealthMeasure hmeasure=storage.createHealthMeasure(healthMeasure);
         
         
