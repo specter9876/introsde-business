@@ -203,7 +203,7 @@ public class BusinessImpl implements Business {
                 }
                 if(healthMeasure.getType().equals("height")){
                     
-                    System.out.println("height check")
+                    System.out.println("height check");
                     
                     if(healthMeasure.getValue()<hmtemp.getValue()){
                         
