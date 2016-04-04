@@ -171,11 +171,11 @@ public class BusinessImpl implements Business {
     public String addHealthMeasure( Long idUser, HealthMeasure healthMeasure ){//OK\\
         //magari per distance la metto incrementale?
         Storage storage=getStorage();
-        System.out.println("add health measure");
+        System.out.println("add health measure business");
         String result=null;
         
         //controlllo con l ultima healthmeasure se è meglio o peggio
-        List<HealthMeasure> hm=this.getRecentHealthMeasureByUser(idUser);
+        List<HealthMeasure> hm=getRecentHealthMeasureByUser(idUser);
           System.out.println("problemmmm flag");
         if(hm.size()>0){
         
