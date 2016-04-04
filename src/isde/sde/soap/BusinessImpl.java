@@ -306,7 +306,8 @@ public class BusinessImpl implements Business {
        
         List<Goal> goalNotAchieved=storage.getGoalNotAchieved(idUser);
         List<Goal> goalselect=new ArrayList <Goal>();
-
+        
+        if(goalNotAchieved.size()>0){
         for(Goal goaltemp:goalNotAchieved){
             System.out.println("FOR to check goal not achieved");
             System.out.println("goal descript: "+goaltemp.getDescription());
@@ -318,7 +319,7 @@ public class BusinessImpl implements Business {
 
 
 
-        		//+++mettere discriminante per goal da activity particolari//tipo perdere peso
+        		//discriminante per goal da activity particolari//tipo perdere peso
                 if (goaltemp.getDescription().equals("weight")){
                     
                     System.out.println("Weight measure control goal");
@@ -414,12 +415,17 @@ public class BusinessImpl implements Business {
             }
         }
         return goalselect;
+        }
+        else{
+            return null;
+            
+        }
 
        
     }
     
     @Override
-    public List<Goal> controlGoalActivity( Activity activity, long idUser ){ //fix roba delle date 
+    public List<Goal> controlGoalActivity( Activity activity, long idUser ){
         
         Storage storage=getStorage();
         System.out.println("Method controlGoalActivity");
@@ -701,7 +707,7 @@ public class BusinessImpl implements Business {
     
     ///////////////////////////////////ACTIVITY//////////////////////////////////////////
     
-    //inserire nel DB query
+    
     @Override
     public List<Activity> getMyDoneActivity(long idUser ){
        
