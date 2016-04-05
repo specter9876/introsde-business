@@ -246,7 +246,7 @@ public class BusinessImpl implements Business {
     
         //completato
         try{
-            
+           /* revert if something goes wrong
             System.out.println("try data");
             String timeStamp = new SimpleDateFormat("y/M/d").format(Calendar.getInstance().getTime());
             DateFormat df = new SimpleDateFormat("y/M/d");
@@ -256,7 +256,12 @@ public class BusinessImpl implements Business {
             
             XMLGregorianCalendar xmlDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(cal);
             healthMeasure.setDate(xmlDate);
-            
+            */
+            GregorianCalendar gregorianCalendar = new GregorianCalendar();
+            DatatypeFactory datatypeFactory = DatatypeFactory.newInstance();
+            XMLGregorianCalendar now =
+            datatypeFactory.newXMLGregorianCalendar(gregorianCalendar);
+            healthMeasure.setDate(now);
             
         }
         catch(Exception e){
