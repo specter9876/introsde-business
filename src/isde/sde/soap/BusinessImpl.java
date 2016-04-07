@@ -143,8 +143,34 @@ public class BusinessImpl implements Business {
         
         //veloce e furbo XD
         if(healthMeasureWeightRetrieve.size()>0){
-            current.add(healthMeasureWeightRetrieve.get(0));
+            
+            if(healthMeasureWeightRetrieve.size()>1){
+                
+                for (int k=0; k<=healthMeasureWeightRetrieve.size()-2;k++){
+                    //controllo il successivo
+                    if(healthMeasureWeightRetrieve.get(k).getDate().equals(healthMeasureWeightRetrieve.get(k+1).getDate())){
+                    
+                    
+                    }
+                    else{
+                       //gestire lultimo
+                        current.add(healthMeasureWeightRetrieve.get(k));
+                    }
+                       
+                }
+                       
+            
+            }
+                       //solo un elemento
+            else{
+                current.add(healthMeasureWeightRetrieve.get(0));
+                           
+            }
+            
         }
+                       
+                       
+                       
         if(healthMeasureHeightRetrieve.size()>0){
             current.add(healthMeasureHeightRetrieve.get(0));
         }
