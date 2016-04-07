@@ -149,7 +149,10 @@ public class BusinessImpl implements Business {
                 for (int k=0; k<=healthMeasureWeightRetrieve.size()-2;k++){
                     //controllo il successivo
                     if(healthMeasureWeightRetrieve.get(k).getDate().equals(healthMeasureWeightRetrieve.get(k+1).getDate())){
-                    
+                        
+                        if(k==healthMeasureWeightRetrieve.size()-2){
+                            current.add(healthMeasureWeightRetrieve.get(k+1));
+                        }
                     
                     }
                     else{
