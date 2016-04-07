@@ -141,7 +141,7 @@ public class BusinessImpl implements Business {
         //add di piu se voglio
 
         
-        //veloce e furbo XD
+        //veloce e furbo XD per date uguali me minuti o ore diverse
         if(healthMeasureWeightRetrieve.size()>0){
             
             if(healthMeasureWeightRetrieve.size()>1){
@@ -171,9 +171,7 @@ public class BusinessImpl implements Business {
             }
             
         }
-                       
-                       
-                       
+        
         if(healthMeasureHeightRetrieve.size()>0){
             current.add(healthMeasureHeightRetrieve.get(0));
         }
@@ -183,7 +181,24 @@ public class BusinessImpl implements Business {
         if(healthMeasureStepRetrieve.size()>0){
             current.add(healthMeasureStepRetrieve.get(0));
         }
+
         
+                       
+      /* revert if trovo come mettere i secondi nelle date nell addhealth  
+       if(healthMeasureWeightRetrieve.size()>0){
+            current.add(healthMeasureWeightRetrieve.get(0));
+        }
+        
+        if(healthMeasureHeightRetrieve.size()>0){
+            current.add(healthMeasureHeightRetrieve.get(0));
+        }
+        if(healthMeasureDistanceRetrieve.size()>0){
+            current.add(healthMeasureDistanceRetrieve.get(0));
+        }
+        if(healthMeasureStepRetrieve.size()>0){
+            current.add(healthMeasureStepRetrieve.get(0));
+        }
+        */
         return current;
     }
     
@@ -275,22 +290,23 @@ public class BusinessImpl implements Business {
     
         //completato
         try{
-           /* revert if something goes wrong
+           
             System.out.println("try data");
-            String timeStamp = new SimpleDateFormat("y/M/d").format(Calendar.getInstance().getTime());
-            DateFormat df = new SimpleDateFormat("y/M/d");
+            String timeStamp = new SimpleDateFormat("y/M/d'T'HH:mm:ss").format(Calendar.getInstance().getTime());
+            DateFormat df = new SimpleDateFormat("y/M/d'T'HH:mm:ss");
             Date date = df.parse(timeStamp);
             GregorianCalendar cal = new GregorianCalendar();
             cal.setTime(date);
             
             XMLGregorianCalendar xmlDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(cal);
             healthMeasure.setDate(xmlDate);
-            */
+            /* revert if something goes wrong
             GregorianCalendar gregorianCalendar = new GregorianCalendar();
             DatatypeFactory datatypeFactory = DatatypeFactory.newInstance();
             XMLGregorianCalendar now =
             datatypeFactory.newXMLGregorianCalendar(gregorianCalendar);
             healthMeasure.setDate(now);
+            */
             
         }
         catch(Exception e){
