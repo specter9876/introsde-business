@@ -140,7 +140,7 @@ public class BusinessImpl implements Business {
         List <HealthMeasure> healthMeasureStepRetrieve = storage.getHealthMeasureByIdUserType(idUser,"steps");
         //add di piu se voglio
 
-        
+        ////////////////////WEIGHT///////////////////////////////////////////////
         //veloce e furbo XD per date uguali me minuti o ore diverse
         if(healthMeasureWeightRetrieve.size()>0){
             
@@ -171,15 +171,93 @@ public class BusinessImpl implements Business {
             }
             
         }
-        
+        //////HEIGHT//////////////////////////////////////////////
         if(healthMeasureHeightRetrieve.size()>0){
-            current.add(healthMeasureHeightRetrieve.get(0));
+            if(healthMeasureHeightRetrieve.size()>1){
+                
+                for (int k=0; k<=healthMeasureHeightRetrieve.size()-2;k++){
+                    //controllo il successivo
+                    if(healthMeasureHeightRetrieve.get(k).getDate().equals(healthMeasureHeightRetrieve.get(k+1).getDate())){
+                        
+                        if(k==healthMeasureHeightRetrieve.size()-2){
+                            current.add(healthMeasureHeightRetrieve.get(k+1));
+                        }
+                        
+                    }
+                    else{
+                        //gestire lultimo
+                        current.add(healthMeasureHeightRetrieve.get(k));
+                    }
+                    
+                }
+                
+                
+            }
+            //solo un elemento
+            else{
+                current.add(healthMeasureWeightRetrieve.get(0));
+                
+            }
         }
+        
+        
+        ///////////////////////DISTANCE//////////////////////////
         if(healthMeasureDistanceRetrieve.size()>0){
-            current.add(healthMeasureDistanceRetrieve.get(0));
+            if(healthMeasureDistanceRetrieve.size()>1){
+                
+                for (int k=0; k<=healthMeasureDistanceRetrieve.size()-2;k++){
+                    //controllo il successivo
+                    if(healthMeasureDistanceRetrieve.get(k).getDate().equals(healthMeasureDistanceRetrieve.get(k+1).getDate())){
+                        
+                        if(k==healthMeasureDistanceRetrieve.size()-2){
+                            current.add(healthMeasureDistanceRetrieve.get(k+1));
+                        }
+                        
+                    }
+                    else{
+                        //gestire lultimo
+                        current.add(healthMeasureDistanceRetrieve.get(k));
+                    }
+                    
+                }
+                
+                
+            }
+            //solo un elemento
+            else{
+                current.add(healthMeasureDistanceRetrieve.get(0));
+                
+            }
+
         }
+        
+        //////////////////////STEP///////////////////////////////
         if(healthMeasureStepRetrieve.size()>0){
-            current.add(healthMeasureStepRetrieve.get(0));
+            if(healthMeasureStepRetrieve.size()>1){
+                
+                for (int k=0; k<=healthMeasureStepRetrieve.size()-2;k++){
+                    //controllo il successivo
+                    if(healthMeasureStepRetrieve.get(k).getDate().equals(healthMeasureStepRetrieve.get(k+1).getDate())){
+                        
+                        if(k==healthMeasureStepRetrieve.size()-2){
+                            current.add(healthMeasureStepRetrieve.get(k+1));
+                        }
+                        
+                    }
+                    else{
+                        //gestire lultimo
+                        current.add(healthMeasureStepRetrieve.get(k));
+                    }
+                    
+                }
+                
+                
+            }
+            //solo un elemento
+            else{
+                current.add(healthMeasureStepRetrieve.get(0));
+                
+            }
         }
 
         
