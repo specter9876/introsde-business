@@ -195,7 +195,7 @@ public class BusinessImpl implements Business {
             }
             //solo un elemento
             else{
-                current.add(healthMeasureWeightRetrieve.get(0));
+                current.add(healthMeasureHeightRetrieve.get(0));
                 
             }
         }
