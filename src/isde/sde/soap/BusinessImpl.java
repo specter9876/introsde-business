@@ -493,13 +493,19 @@ public class BusinessImpl implements Business {
 
                         }
                         else{
-                            
+                             ///h24a2016
+                           
                              if((hmtemp.getType().equals("weight"))&&(hmtemp.getValue()-healthMeasure.getValue()+ goaltemp.getProgress()<goaltemp.getEndValue())){
-                                   //goal not achieved upadte progress
+                                 
+                                 //goal not achieved upadte progress
                                    double progress=goaltemp.getProgress();
-                                
+                                 
+                                   ///h24a2016
+                                 if(hmtemp.getValue()-healthMeasure.getValue()>0){
+                                 
                                    goaltemp.setProgress(progress+hmtemp.getValue()-healthMeasure.getValue());
                                    goalselect.add(storage.updateGoal(goaltemp));
+                                 }
                              }
                          }
                            
@@ -581,7 +587,7 @@ public class BusinessImpl implements Business {
             if(activity.getType().equals(goaltemp.getDescription())){//match dell activity.type inserita con il goal.description
                 
                 System.out.println("find goal for activity");
-                double currentProgress=goaltemp.getProgress()+activity.getValue();
+                double currentProgress=goaltemp.getProgress()+activity.getDuration();//.getValue();//metteregetDurstion() o cambiare nella UI
 
 
                 //caso in cui becco o supero il valore prefissato oppure aggiungendo il valore dell attività piu progress gia raggiunti arrivo al goal
@@ -869,14 +875,17 @@ public class BusinessImpl implements Business {
         for(Activity a:activityRetrieved){
 
         	if(a.getType().equals(activity.getType())){
+                System.out.println("trovato match con activity prefissata");
 
         		activity.setCalories(activity.getDuration()*a.getCalories());
         		return storage.createActivity(activity);
 
         	}
+            
 
         }
-        
+        System.out.println("non trovato match con activity prefissata");
+
         return null;
     }
 
